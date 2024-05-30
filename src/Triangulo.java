@@ -1,9 +1,9 @@
 public class Triangulo extends Figura {
   public Triangulo(Vertice vertice1, Vertice vertice2, Vertice vertice3) {
-    super.vertices = new Vertice[3];
-    super.vertices[0] = vertice1;
-    super.vertices[1] = vertice2;
-    super.vertices[2] = vertice3;
+    vertices = new Vertice[3];
+    vertices[0] = vertice1;
+    vertices[1] = vertice2;
+    vertices[2] = vertice3;
   }
 
   private double calcularSegmento(Vertice vert_a, Vertice vert_b) {
