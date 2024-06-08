@@ -34,7 +34,10 @@ public class CirculoControlador extends Controlador {
 
           c = new Circulo(centro, ponto);
           figuraCriada = true;
-          return;
+          System.out.print("\033[H\033[2J");
+          separador();
+          System.out.println("Círculo criado com sucesso!");
+          return; // Encerra o laço
 
         case 2:
           centro = Vertice.pedirVertice(1, scDouble);
@@ -44,7 +47,7 @@ public class CirculoControlador extends Controlador {
 
           c = new Circulo(centro, raio);
           figuraCriada = true;
-          return;
+          return; // Encerra o laço
 
         default:
           System.out.println("Opção inválida. Tente novamente.");

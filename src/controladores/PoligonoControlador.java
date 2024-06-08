@@ -20,7 +20,7 @@ public class PoligonoControlador extends Controlador {
     // Força o usuário a inserir ao menos 3 vértices, antes de conseguir acessar
     // novamente o menu
     System.out.println("Para inicializar o Poligono é necessario inserir ao menos 3 vertices.");
-    System.out.println("Ensira-os no sentido anti-horário.");
+    //System.out.println("Ensira-os no sentido anti-horário.");
     while (p.getQtdPossuiVertices() < 3) {
       int qtdeVerticesPossui = p.getQtdPossuiVertices();
 

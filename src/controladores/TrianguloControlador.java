@@ -29,6 +29,8 @@ public class TrianguloControlador extends Controlador {
       t = new Triangulo(vertices[0], vertices[1], vertices[2]);
       if (t.formaTriangulo()) {
         figuraCriada = true;
+        System.out.print("\033[H\033[2J");
+        separador();
         System.out.println("Triangulo criado com sucesso!");
         return; // Encerra o laço
       } else {
