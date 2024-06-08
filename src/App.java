@@ -1,35 +1,116 @@
+import controladores.PoligonoControlador;
+import controladores.TrianguloControlador;
+import controladores.CirculoControlador;
+
 public class App {
+  public static void geogebraLogo() {
+    System.out.print("\033[H\033[2J");
+    System.out.println(
+            ":::::::::::::::::::::::::::::::::::: ######### :::::::::::::::::::::::::::::::::::::::\n" + //
+            ":::::::::::::::::::::::::::::::::: ############   *********** ::::::::::::::::::::::::\n" + //
+            ":::::::::::::::::::::::::::: ****  ############   **************** :::::::::::::::::::\n" + //
+            ":::::::::::::::::::::::: ********   ##########         ************* :::::::::::::::::\n" + //
+            ":::::::::::::::::::: ***********                 ..          ********** ::::::::::::::\n" + //
+            ":::::::::::::::::: ********** ::.        ..:::::::::::::.          *     :::::::::::::\n" + //
+            "::::::::::::::'  ********** ::::::::::::::::::::::::::::::.         ########## :::::::\n" + //
+            ":::::::::''           ** :::::::::::::::::::::::::::::::::::      ############# ::::::\n" + //
+            "::::::'' ########## ::::::::::::::::::::::::::::::::::::::::      ############# ::::::\n" + //
+            "::::::  ############ ::::::::::::::::::::::::::::::::::::::::       ########## :::::::\n" + //
+            "::::::  ############ :::::::::::::::::::::::::::::::::::::::::.                .::::::\n" + //
+            "::::::   #########  ::::::::::::::::::::::::::::::::::::::::::::..     ******* :::::::\n" + //
+            ":::::             ::::::::::::::::::::::::::::::::::::::::::::::::     ******* :::::::\n" + //
+            ":::::    ****** ::::::::::::::::::::::::::::::::::::::::::::::::::    ******* .:::::::\n" + //
+            ":::::   ******* :::::::::::::::::::::::::::::::::::::::::::::::::    ******* .::::::::\n" + //
+            ":::::   ******* ::::::::::::::::::::::::::::::::::::::::::::::::    ******* .:::::::::\n" + //
+            ":::::    ******  :::::::::::::::::::::::::::::::::::::::::::::'   ******** .::::::::::\n" + //
+            ":::::    *******  ::::::::::::::::::::::::::::::::::::::::''''    ******** .::::::::::\n" + //
+            ":::::     *******  :::::::::::::::::::::::::::::::::::::'  ######   **** .::::::::::::\n" + //
+            "::::::      *******  ::::::::::::::::::::::::::::::::::  ########## .....:::::::::::::\n" + //
+            ":::::::      ****    ######  :::::::::::::::::::::::::  ############ :::::::::::::::::\n" + //
+            "::::::::.      *   ##########  ::::::::::::::::::' ***  ############ :::::::::::::::::\n" + //
+            "::::::::::.       ############   *********************   ########   .:::::::::::::::::\n" + //
+            "::::::::::::.     ############  ***********************         ...:::::::::::::::::::\n" + //
+            ":::::::::::::       ########   *****************      ...:::::::::::::::::::::::::::::\n" + //
+            ":::::::::::::::                              .....::::::::::::::::::::::::::::::::::::\n" + //
+            ":'######:::'########   #######:::'######:::'########:'########::'########:::::'###::::\n" + //
+            "'##... ##:: ##.....::'##.... ##:'##... ##:: ##.....:: ##.... ##: ##.... ##:::'## ##:::\n" + //
+            " ##:::..::: ##::::::: ##:::: ##: ##:::..::: ##::::::: ##:::: ##: ##:::: ##::'##:. ##::\n" + //
+            " ##::'####: ######::: ##:::: ##: ##::'####: ######::: ########:: ########::'##:::. ##:\n" + //
+            " ##::: ##:: ##...:::: ##:::: ##: ##::: ##:: ##...:::: ##.... ##: ##.. ##::: #########:\n" + //
+            " ##::: ##:: ##::::::: ##:::: ##: ##::: ##:: ##::::::: ##:::: ##: ##::. ##:: ##.... ##:\n" + //
+            ". ######::: ########:. #######::. ######::: ########: ########:: ##:::. ##: ##:::: ##:\n" + //
+            ":......::::........:::.......::::......::::........::........:::..:::::..::..:::::..::\n\n");
+  }
+
   public static void main(String[] args) {
     Menu menu = new Menu();
 
     TrianguloControlador trianguloControlador = new TrianguloControlador();
     PoligonoControlador poligonoControlador = new PoligonoControlador();
+    CirculoControlador circuloControlador = new CirculoControlador();
 
     // Limpa o terminal utilizando códigos ANSI
     System.out.print("\033[H\033[2J");
+    geogebraLogo();
 
     for (;;) {
       int opcao = menu.getOption();
 
       switch (opcao) {
-        case MenuOptions.CRIAR_TRIANGULO:
+        // Triangulo
+        case Opcoes.CRIAR_TRIANGULO:
           trianguloControlador.criarTriangulo();
-        case MenuOptions.PERIMETRO_TRIANGULO:
+          break;
+        case Opcoes.PERIMETRO_TRIANGULO:
           trianguloControlador.perimetro();
-        case MenuOptions.AREA_TRIANGULO:
+          break;
+        case Opcoes.AREA_TRIANGULO:
           trianguloControlador.area();
-        case MenuOptions.TIPO_TRIANGULO:
+          break;
+        case Opcoes.TIPO_TRIANGULO:
           trianguloControlador.tipo();
-        case MenuOptions.CRIAR_POLIGONO:
+          break;
+
+        // Poligono
+        case Opcoes.CRIAR_POLIGONO:
           poligonoControlador.criarPoligono();
-        case MenuOptions.ADICIONAR_VERTICE_POLIGONO:
-          poligonoControlador.adicionarVertice();
-        case MenuOptions.ALTERAR_VERTICE_POLIGONO:
+          break;
+        case Opcoes.ADICIONAR_VERTICE_POLIGONO:
+          poligonoControlador.addVertice();
+          break;
+        case Opcoes.ALTERAR_VERTICE_POLIGONO:
           poligonoControlador.alterarVertice();
-        case MenuOptions.PERIMETRO_POLIGONO:
+          break;
+        case Opcoes.PERIMETRO_POLIGONO:
           poligonoControlador.perimetro();
-        case MenuOptions.QUANTIDADE_VERTICES_POLIGONO:
+          break;
+        case Opcoes.AREA_POLIGONO:
+          poligonoControlador.area();
+          break;
+        case Opcoes.QUANTIDADE_VERTICES_POLIGONO:
           poligonoControlador.qtdeVertices();
+          break;
+        case Opcoes.PONTO_ESTA_NO_POLIGONO:
+          poligonoControlador.estaNoPoligono();
+          break;
+
+        // Circulo
+        case Opcoes.CRIAR_CIRCULO:
+          circuloControlador.criarCirculo();
+          break;
+        case Opcoes.PERIMETRO_CIRCULO:
+          circuloControlador.perimetro();
+          break;
+        case Opcoes.AREA_CIRCULO:
+          circuloControlador.area();
+          break;
+        case Opcoes.RAIO_CIRCULO:
+          circuloControlador.raio();
+          break;
+        case Opcoes.DIAMETRO_CIRCULO:
+          circuloControlador.diametro();
+          break;
+
         default:
           System.out.println("Encerrando...");
           return;

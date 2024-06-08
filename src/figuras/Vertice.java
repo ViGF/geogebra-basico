@@ -1,3 +1,5 @@
+package figuras;
+
 import java.lang.Math;
 import java.util.Scanner;
 
@@ -36,7 +38,7 @@ public class Vertice {
     return this.x == outroVertice.getX() && this.y == outroVertice.getY();
   }
 
-  static Vertice pedirVertice(int numeroVertice, Scanner sc) {
+  public static Vertice pedirVertice(int numeroVertice, Scanner sc) {
     System.out.println("Vértice " + numeroVertice + ": ");
     System.out.print("[x]: ");
     double x = sc.nextDouble();
