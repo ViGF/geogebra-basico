@@ -210,6 +210,6 @@ public class Calculadora {
 	}
 
 	public double calcularComResultado(String expressao, double resultado) {
-		return calcularExpressao(resultado / 10 + expressao);
+		return calcularExpressao(expressao.replaceAll("r", "" + resultado/10));
 	}
 }
