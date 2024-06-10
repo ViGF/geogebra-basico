@@ -4,7 +4,6 @@ public class Calculadora {
 	private String numeros = "";
 	private String fatores[];
 	private String operadores = "";
-	private double resultado;
 	private char[] operadoresNaoUsados;
 
 	// itera a lista de operadores e retorna o indice do operador
@@ -88,7 +87,7 @@ public class Calculadora {
 	// vem primeiro.
 	// Por regra multiplicacoes e divisoes vem primeiro que
 
-	private void calcular(String expressao) {
+	public double calcular(String expressao) {
 		formarCalculo(expressao);
 		operadoresNaoUsados = operadores.toCharArray();
 		int operacoesRestando = operadores.length();
@@ -145,24 +144,10 @@ public class Calculadora {
 			}
 		}
 
-		resultado = Double.parseDouble(fatores[0]);
+		return Double.parseDouble(fatores[0]);
 	}
 
-	public double calcularExpressao(String expressao) {
-		calcular(expressao);
-		return resultado;
-	}
-
-	public void zerarResultado() {
-		resultado = 0;
-	}
-
-	public double calcularComResultado(String expressao) {
-		calcular(resultado + expressao);
-		return resultado;
-	}
-
-	public double getResultado() {
-		return resultado;
+	public double calcularComResultado(String expressao, double resultado) {
+		return calcular(resultado / 10 + expressao);
 	}
 }
