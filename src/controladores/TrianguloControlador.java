@@ -3,13 +3,13 @@ package controladores;
 import figuras.Triangulo;
 import figuras.Vertice;
 
-public class TrianguloControlador extends Controlador {
+public class TrianguloControlador extends ControladorFigura {
   private Triangulo t;
 
   // Construtor:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
   public TrianguloControlador() {
-    super("triângulo");
+    super("triangulo");
   }
 
   // Criador do objeto:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -17,8 +17,8 @@ public class TrianguloControlador extends Controlador {
   public void criarTriangulo() {
     Vertice[] vertices = new Vertice[3];
 
-    // Força o usuário a criar um triângulo válido
-    bannerFigura("Criando Triangulo");
+    // Forca o usuario a criar um triangulo valido
+    banner("Criando Triangulo");
     for (;;) {
       for (int i = 0; i < vertices.length; i++) {
         Vertice novoVertice = Vertice.pedirVertice(i + 1, scDouble);
@@ -32,15 +32,15 @@ public class TrianguloControlador extends Controlador {
         System.out.print("\033[H\033[2J");
         separador();
         System.out.println("Triangulo criado com sucesso!");
-        return; // Encerra o laço
+        return; // Encerra o laco
       } else {
-        System.out.println("Erro - Os vertices não formam um triangulo!");
+        System.out.println("Erro - Os vertices nao formam um triangulo!");
         System.out.println("Adicione novamente!");
       }
     }
   }
 
-  // Métodos de triãngulo:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+  // Metodos de triangulo:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
   public void tipo() {
     if (figuraCriada) {

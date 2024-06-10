@@ -26,13 +26,13 @@ public class Triangulo extends Figura {
 
   public String tipo() {
     if ((getSegmento_1() == getSegmento_2()) && (getSegmento_2() == getSegmento_3())) {
-      return "Triângulo Equilátero";
+      return "Triangulo Equilatero";
     } else if ((getSegmento_1() == getSegmento_2()) ||
         (getSegmento_1() == getSegmento_3()) ||
         (getSegmento_2() == getSegmento_3())) {
-      return "Triângulo Isósceles";
+      return "Triangulo Isosceles";
     } else {
-      return "Triângulo Escaleno";
+      return "Triangulo Escaleno";
     }
   }
 
@@ -61,10 +61,10 @@ public class Triangulo extends Figura {
 
   @Override
   public void calcularPerimetro() {
-    // Para calcular o perímetro é necessário saber qual a distância entre cada
-    // vértice ao próximo,
-    // e qual a distância entre o último ao primeiro, já que eles se ligam para
-    // formar o polígono.
+    // Para calcular o perimetro e necessario saber qual a distancia entre cada
+    // vertice ao proximo,
+    // e qual a distancia entre o ultimo ao primeiro, ja que eles se ligam para
+    // formar o poligono.
     double perimetro = 0;
     for (int i = 0; i + 1 < qtdPossuiVertices; i++) {
       perimetro += vertices[i].distancia(vertices[i + 1]);

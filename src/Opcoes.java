@@ -1,10 +1,10 @@
 /**
- * Códigos retornados de acordo com a opção selecionada:
- * - Primeiro dígito indica o menu:
+ * Codigos retornados de acordo com a opcao selecionada:
+ * - Primeiro digito indica o menu:
  * 0 - menu principal
  * 1 - menu do triangulo
  * 2 - menu do poligono
- * - Segundo dígito indica a opção
+ * - Segundo digito indica a opcao
  */
 class Opcoes {
   // Triangulo
@@ -29,5 +29,10 @@ class Opcoes {
   static final int RAIO_CIRCULO = 34;
   static final int DIAMETRO_CIRCULO = 35;
 
-  static final int FIM = 4;
+  // Calculadora
+  static final int CALCULAR_EXPRESSAO = 41;
+  static final int CALCULAR_COM_RESULTADO = 42;
+  static final int ZERAR_RESULTADO = 43;
+
+  static final int FIM = 5;
 }

@@ -1,7 +1,7 @@
 package controladores;
 
-public interface Comum {
-	// Todo controlador vai ter um método area
+public interface MetodosControladorFigura {
+	// Todo controlador vai ter um metodo area
 	// e perimetro, no entanto nao foi dado
 	// um uso a essa interface alem de padronizar
 	// Isso poderia ter sido feito com a classe

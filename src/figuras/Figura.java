@@ -1,6 +1,6 @@
 package figuras;
 
-public abstract class Figura implements Comum {
+public abstract class Figura implements MetodosFigura {
   protected Vertice[] vertices;
   protected int qtdMaxVertices;
   protected int qtdPossuiVertices;

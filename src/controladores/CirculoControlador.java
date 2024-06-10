@@ -3,13 +3,13 @@ package controladores;
 import figuras.Circulo;
 import figuras.Vertice;
 
-public class CirculoControlador extends Controlador {
+public class CirculoControlador extends ControladorFigura {
   private Circulo c;
 
   // Construtor:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
   public CirculoControlador() {
-    super("círculo");
+    super("circulo");
   }
 
   // Criador do objeto:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -19,11 +19,11 @@ public class CirculoControlador extends Controlador {
     Vertice ponto;
     double raio;
 
-    // Força o usuário a criar circulo válido
-    bannerFigura("Criando Círculo");
+    // Forca o usuario a criar circulo valido
+    banner("Criando Circulo");
     System.out
-        .println("Para inicializar o círculo é necessário indicar o centro e o raio, ou o centro e outro vértice.");
-    System.out.println("Escolha uma opção:\n 1: Ponto\n 2: Raio");
+        .println("Para inicializar o circulo e necessario indicar o centro e o raio, ou o centro e outro vertice.");
+    System.out.println("Escolha uma opcao:\n 1: Ponto\n 2: Raio");
     for (;;) {
       switch (scInt.nextInt()) {
         case 1:
@@ -36,21 +36,24 @@ public class CirculoControlador extends Controlador {
           figuraCriada = true;
           System.out.print("\033[H\033[2J");
           separador();
-          System.out.println("Círculo criado com sucesso!");
-          return; // Encerra o laço
+          System.out.println("Circulo criado com sucesso!");
+          return; // Encerra o laco
 
         case 2:
           centro = Vertice.pedirVertice(1, scDouble);
           System.out.println("Vertice criado com sucesso!");
-          System.out.println("Digite o raio do círculo: ");
+          System.out.println("Digite o raio do circulo: ");
           raio = scDouble.nextDouble();
 
           c = new Circulo(centro, raio);
           figuraCriada = true;
-          return; // Encerra o laço
+          System.out.print("\033[H\033[2J");
+          separador();
+          System.out.println("Circulo criado com sucesso! ");
+          return; // Encerra o laco
 
         default:
-          System.out.println("Opção inválida. Tente novamente.");
+          System.out.println("Opcao invalida. Tente novamente.");
           break;
       }
     }
@@ -70,7 +73,7 @@ public class CirculoControlador extends Controlador {
   public void diametro() {
     separador();
     if (figuraCriada) {
-      System.out.format("Diâmetro: %.2f\n", c.getDiametro());
+      System.out.format("Diametro: %.2f\n", c.getDiametro());
     } else {
       msgFiguraInexistente();
     }

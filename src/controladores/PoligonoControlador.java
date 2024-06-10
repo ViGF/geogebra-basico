@@ -3,13 +3,13 @@ package controladores;
 import figuras.Poligono;
 import figuras.Vertice;
 
-public class PoligonoControlador extends Controlador {
+public class PoligonoControlador extends ControladorFigura {
   private Poligono p;
 
   // Construtor:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
   public PoligonoControlador() {
-    super("polígono");
+    super("poligono");
   }
 
   // Criador do objeto:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -17,14 +17,14 @@ public class PoligonoControlador extends Controlador {
   public void criarPoligono() {
     p = new Poligono(definirQuantidadeVertices());
 
-    // Força o usuário a inserir ao menos 3 vértices, antes de conseguir acessar
+    // Forca o usuario a inserir ao menos 3 vertices, antes de conseguir acessar
     // novamente o menu
-    System.out.println("Para inicializar o Poligono é necessario inserir ao menos 3 vertices.");
-    //System.out.println("Ensira-os no sentido anti-horário.");
+    System.out.println("Para inicializar o Poligono e necessario inserir ao menos 3 vertices.");
+    //System.out.println("Ensira-os no sentido anti-horario.");
     while (p.getQtdPossuiVertices() < 3) {
       int qtdeVerticesPossui = p.getQtdPossuiVertices();
 
-      // Força o usuário a inserir um vértice que ainda não existe
+      // Forca o usuario a inserir um vertice que ainda nao existe
       boolean adicionouVertice = false;
       while (!adicionouVertice) {
         Vertice novoVertice = Vertice.pedirVertice(qtdeVerticesPossui + 1, scDouble);
@@ -33,7 +33,7 @@ public class PoligonoControlador extends Controlador {
         if (adicionouVertice) {
           System.out.println("Adicionado com sucesso!");
         } else {
-          System.out.print("O vertice adicionado já existe! Tente novamente.\n");
+          System.out.print("O vertice adicionado ja existe! Tente novamente.\n");
         }
       }
     }
@@ -49,8 +49,8 @@ public class PoligonoControlador extends Controlador {
   int definirQuantidadeVertices() {
     int quantidade = 0;
 
-    // Força o usuário a inserir uma quantidade válida
-    bannerFigura("Criando Poligono");
+    // Forca o usuario a inserir uma quantidade valida
+    banner("Criando Poligono");
     while (quantidade < 3 || quantidade > 10) {
       System.out.print("Quantidade de vertices (min. 3, max. 10): ");
       quantidade = scInt.nextInt();
@@ -58,7 +58,7 @@ public class PoligonoControlador extends Controlador {
       if (quantidade < 3) {
         System.out.println("Erro - O poligono deve ter ao menos 3 vertices");
       } else if (quantidade > 10) {
-        System.out.println("Erro - O poligono deve ter no máximo 10 vertices");
+        System.out.println("Erro - O poligono deve ter no maximo 10 vertices");
       }
     }
 
@@ -90,15 +90,15 @@ public class PoligonoControlador extends Controlador {
   public void alterarVertice() {
     separador();
     if (figuraCriada) {
-      System.out.print("Número do vértice que deseja alterar: ");
+      System.out.print("Numero do vertice que deseja alterar: ");
       int numeroVertice = scInt.nextInt();
       Vertice novoVertice = Vertice.pedirVertice(numeroVertice, scDouble);
 
       boolean alterarVerticeResultado = p.alterarVertice(numeroVertice, novoVertice.getX(), novoVertice.getY());
       if (alterarVerticeResultado) {
-        System.out.println("Vértice alterado com sucesso!");
+        System.out.println("Vertice alterado com sucesso!");
       } else {
-        System.out.println("Erro - O vértice informado ainda não existe.");
+        System.out.println("Erro - O vertice informado ainda nao existe.");
       }
     } else {
       msgFiguraInexistente();
@@ -121,14 +121,14 @@ public class PoligonoControlador extends Controlador {
   public void estaNoPoligono() {
     separador();
     if (figuraCriada) {
-      System.out.println("Insira os vértices do ponto:");
+      System.out.println("Insira os vertices do ponto:");
       Vertice ponto = Vertice.pedirVertice(1, scDouble);
       System.out.print("\033[H\033[2J");
       separador();
       if (p.pontoEstaNoPoligono(ponto)) {
-        System.out.println("O ponto está dentro do polígono.");
+        System.out.println("O ponto esta dentro do poligono.");
       } else {
-        System.out.println("O ponto não está dentro do polígono.");
+        System.out.println("O ponto nao esta dentro do poligono.");
       }
     } else {
       msgFiguraInexistente();

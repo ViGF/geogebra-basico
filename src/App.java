@@ -1,12 +1,13 @@
 import controladores.PoligonoControlador;
 import controladores.TrianguloControlador;
 import controladores.CirculoControlador;
+import controladores.CalculadoraControlador;
 
 public class App {
   public static void geogebraLogo() {
     System.out.print("\033[H\033[2J");
     System.out.println(
-            ":::::::::::::::::::::::::::::::::::: ######### :::::::::::::::::::::::::::::::::::::::\n" + //
+        ":::::::::::::::::::::::::::::::::::: ######### :::::::::::::::::::::::::::::::::::::::\n" + //
             ":::::::::::::::::::::::::::::::::: ############   *********** ::::::::::::::::::::::::\n" + //
             ":::::::::::::::::::::::::::: ****  ############   **************** :::::::::::::::::::\n" + //
             ":::::::::::::::::::::::: ********   ##########         ************* :::::::::::::::::\n" + //
@@ -48,8 +49,9 @@ public class App {
     TrianguloControlador trianguloControlador = new TrianguloControlador();
     PoligonoControlador poligonoControlador = new PoligonoControlador();
     CirculoControlador circuloControlador = new CirculoControlador();
+    CalculadoraControlador calculadoraControlador = new CalculadoraControlador();
 
-    // Limpa o terminal utilizando códigos ANSI
+    // Limpa o terminal utilizando codigos ANSI
     System.out.print("\033[H\033[2J");
     geogebraLogo();
 
@@ -109,6 +111,17 @@ public class App {
           break;
         case Opcoes.DIAMETRO_CIRCULO:
           circuloControlador.diametro();
+          break;
+
+        // Calculadora
+        case Opcoes.CALCULAR_EXPRESSAO:
+          calculadoraControlador.calcularExpressao();
+          break;
+        case Opcoes.CALCULAR_COM_RESULTADO:
+          calculadoraControlador.calcularComResultado();
+          break;
+        case Opcoes.ZERAR_RESULTADO:
+          calculadoraControlador.zerarResultado();
           break;
 
         default:

@@ -20,26 +20,26 @@ public class Vertice {
     return y;
   }
 
-  // Método para calcular a distância euclidiana entre dois vértices
+  // Metodo para calcular a distancia euclidiana entre dois vertices
   public double distancia(Vertice outroVertice) {
     double deltaX = this.x - outroVertice.getX();
     double deltaY = this.y - outroVertice.getY();
     return Math.sqrt(deltaX * deltaX + deltaY * deltaY);
   }
 
-  // Método para alterar a posição de um vertice
+  // Metodo para alterar a posicao de um vertice
   public void move(double novoX, double novoY) {
     this.x = novoX;
     this.y = novoY;
   }
 
-  // Método para verificar se dois vértices são iguais
+  // Metodo para verificar se dois vertices sao iguais
   public boolean equals(Vertice outroVertice) {
     return this.x == outroVertice.getX() && this.y == outroVertice.getY();
   }
 
   public static Vertice pedirVertice(int numeroVertice, Scanner sc) {
-    System.out.println("Vértice " + numeroVertice + ": ");
+    System.out.println("Vertice " + numeroVertice + ": ");
     System.out.print("[x]: ");
     double x = sc.nextDouble();
     System.out.print("[y]: ");

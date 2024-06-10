@@ -15,11 +15,11 @@ public class Poligono extends Figura {
     for (int i = 0; i < this.qtdMaxVertices; i++) {
       if (vertices[i] != null) {
         if (vertices[i].equals(v)) {
-          return false; // Retorna falso se o vertice já existir.
+          return false; // Retorna falso se o vertice ja existir.
         }
       } else {
-        // Se a posição for nula (vazia), significa que o o iterador chegou ao fim dos
-        // vértices já armazenados na lista.
+        // Se a posicao for nula (vazia), significa que o o iterador chegou ao fim dos
+        // vertices ja armazenados na lista.
         this.vertices[i] = v;
         this.qtdPossuiVertices += 1;
         System.out.println(this.qtdPossuiVertices);
@@ -42,18 +42,18 @@ public class Poligono extends Figura {
   }
 
   public boolean pontoEstaNoPoligono(Vertice vertice) {
-    // Pelo método de Raycasting, ao projetar uma reta horizontal de qualquer lado
-    // atravessando um polígono até o ponto especificado, é possível descobrir se
-    // o ponto está dentro do polígono através do número de vezes que essa reta
-    // atravessou uma aresta desse polígono.
-    // Se a reta atravessou um número impar de vezes, então o ponto está dentro do
-    // polígono
-    // Se a reta atravessou um número par de vezes ele está fora
-    // As condições necessária são a coordenada Y estar dentro dos limites do
-    // polígono
-    // A segunda condição é dada pela fórmula Xp < X1 + (Yp - Y1)/(Y2 - Y1) * (X2 -
+    // Pelo metodo de Raycasting, ao projetar uma reta horizontal de qualquer lado
+    // atravessando um poligono ate o ponto especificado, e possivel descobrir se
+    // o ponto esta dentro do poligono atraves do numero de vezes que essa reta
+    // atravessou uma aresta desse poligono.
+    // Se a reta atravessou um numero impar de vezes, entao o ponto esta dentro do
+    // poligono
+    // Se a reta atravessou um numero par de vezes ele esta fora
+    // As condicoes necessaria sao a coordenada Y estar dentro dos limites do
+    // poligono
+    // A segunda condicao e dada pela formula Xp < X1 + (Yp - Y1)/(Y2 - Y1) * (X2 -
     // X1)
-    // e é responsável por dar o resultado de quantas vezes a reta atravessou as
+    // e e responsavel por dar o resultado de quantas vezes a reta atravessou as
     // arestas no
     // sentido horizontal.
 
@@ -66,7 +66,7 @@ public class Poligono extends Figura {
         contador++;
       }
     }
-    // Conecta o último vértice de volta ao primeiro
+    // Conecta o ultimo vertice de volta ao primeiro
     if (((vertice.getY() < vertices[qtdPossuiVertices - 1].getY()) != (vertice.getY() < vertices[0].getY())) && (vertice
         .getX() < (vertices[qtdPossuiVertices - 1].getX() + ((vertice.getY() - vertices[qtdPossuiVertices - 1].getY())
             / (vertices[0].getY() - vertices[qtdPossuiVertices - 1].getY()))
@@ -80,10 +80,10 @@ public class Poligono extends Figura {
 
   @Override
   public void calcularArea() {
-    // Para calcular a área usa-se o determinante
+    // Para calcular a area usa-se o determinante
     // A = 1/2 * ((X1 * Y2) - (Y1 * X2) + (X2 * Y3) - (Y2 * X3)......)
-    // É necessário que a ordem dos vértices seja anti-horário, mas nos testes
-    // não houve nenhuma diferença
+    // E necessario que a ordem dos vertices seja anti-horario, mas nos testes
+    // nao houve nenhuma diferenca
     double area = 0;
     for (int i = 0; i < qtdPossuiVertices - 1; i++) {
       area += ((vertices[i].getX() * vertices[i + 1].getY()) + (vertices[i].getY() * vertices[i + 1].getX()) * -1);
@@ -93,7 +93,7 @@ public class Poligono extends Figura {
         + (vertices[qtdPossuiVertices - 1].getY() * vertices[0].getX()) * -1);
     area = area / 2;
 
-    // Não existe área negativa
+    // Nao existe area negativa
     if (area < 1)
       area = area * -1;
     this.area = area;
@@ -101,10 +101,10 @@ public class Poligono extends Figura {
 
   @Override
   public void calcularPerimetro() {
-    // Para calcular o perímetro é necessário saber qual a distância entre cada
-    // vértice ao próximo,
-    // e qual a distância entre o último ao primeiro, já que eles se ligam para
-    // formar o polígono.
+    // Para calcular o perimetro e necessario saber qual a distancia entre cada
+    // vertice ao proximo,
+    // e qual a distancia entre o ultimo ao primeiro, ja que eles se ligam para
+    // formar o poligono.
 
     double perimetro = 0;
     for (int i = 0; i + 1 < qtdPossuiVertices; i++) {

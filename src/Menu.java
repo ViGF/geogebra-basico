@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-//Classe responsável por apresentar os menus e ler a opção selecionada pelo usuário.
+//Classe responsavel por apresentar os menus e ler a opcao selecionada pelo usuario.
 public class Menu {
   // Menu ID:
   // 0 (menu principal)
@@ -15,16 +15,16 @@ public class Menu {
   }
 
   int getOption() {
-    // Variável que indica a última opção do menu
-    // Está associada ao retorno para o menu anterior
+    // Variavel que indica a ultima opcao do menu
+    // Esta associada ao retorno para o menu anterior
     int ultimaOpcaoMenu = 0;
 
-    // Loop até que a opcao do nosso menu seja retornado
+    // Loop ate que a opcao do nosso menu seja retornado
     for (;;) {
       switch (menuId) {
         case 0:
           this.mostrarMainMenu();
-          ultimaOpcaoMenu = 4;
+          ultimaOpcaoMenu = 5;
           break;
         case 1:
           this.mostrarTrianguloMenu();
@@ -38,34 +38,38 @@ public class Menu {
           this.mostrarCirculoMenu();
           ultimaOpcaoMenu = 6;
           break;
+        case 4:
+          this.mostrarCalculadoraMenu();
+          ;
+          ultimaOpcaoMenu = 4;
         default:
           break;
       }
 
-      // Pede opção do menu ao usuário
+      // Pede opcao do menu ao usuario
       int opcao = sc.nextInt();
 
-      // Limpa o terminal utilizando códigos ANSI
+      // Limpa o terminal utilizando codigos ANSI
       System.out.print("\033[H\033[2J");
       System.out.println(opcao);
 
       if (opcao == ultimaOpcaoMenu) {
-        // Escolheu a última opção do menu...
+        // Escolheu a ultima opcao do menu...
         if (this.menuId == 0) {
           // Estava no menu principal
           return 4;
         } else {
-          // Estava em algum menu, então volta para o menu principal
+          // Estava em algum menu, entao volta para o menu principal
           this.menuId = 0;
         }
       } else {
-        // Selecionou outra opção que não é a última
+        // Selecionou outra opcao que nao e a ultima
         if (this.menuId == 0) {
-          // Navega para o outro menu, pois no menu principal só tem submenus
+          // Navega para o outro menu, pois no menu principal so tem submenus
           this.menuId = opcao;
         } else {
           // Selecionou alguma funcionalidade
-          // Retorna a opção selecionada
+          // Retorna a opcao selecionada
           return this.menuId * 10 + opcao;
         }
       }
@@ -76,10 +80,11 @@ public class Menu {
     System.out.println(":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
     System.out.println("                                         Inicio");
     System.out.println(":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
-    System.out.println("1 - Triângulo");
+    System.out.println("1 - Triangulo");
     System.out.println("2 - Poligono");
     System.out.println("3 - Circulo");
-    System.out.println("4 - Sair");
+    System.out.println("4 - Calculadora");
+    System.out.println("5 - Sair");
     System.out.print("Opcao: ");
   }
 
@@ -114,6 +119,15 @@ public class Menu {
     System.out.println("4 - Raio");
     System.out.println("5 - Diametro");
     System.out.println("6 - Voltar p/ inicio");
+    System.out.print("Opcao: ");
+  }
+
+  private void mostrarCalculadoraMenu() {
+    System.out.println("::::::::::::::::::::::::::::::::::::::Calculadora::::::::::::::::::::::::::::::::::::::");
+    System.out.println("1 - Calcular expressao");
+    System.out.println("2 - Calcular com resultado anterior");
+    System.out.println("3 - Zerar resultado");
+    System.out.println("4 - Voltar p/ inicio");
     System.out.print("Opcao: ");
   }
 }
