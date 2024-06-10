@@ -14,7 +14,7 @@ public class CalculadoraControlador extends Controlador {
 		System.out.println("Digite uma expressao:\nExemplo: 2^3 + V16/2 (resultado 10)");
 		String entrada = scStr.nextLine();
 		System.out.print("\033[H\033[2J");
-		resultado = calculadora.calcular(entrada);
+		resultado = calculadora.calcularExpressao(entrada);
 		separador();
 		System.out.println(resultado);
 	}
